@@ -2,6 +2,7 @@ package org.nerdcore.tomeofinfiniteknowledge.study.LayoutStudy;
 
 import javafx.application.Application;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -23,7 +24,16 @@ public class BoderPaneEx extends Application {
 
     private void initUI(Stage stage){
         root = new BorderPane();
+        root.setTop(getTopLabel());
+        root.setBottom(getBottomLabel());
+        root.setLeft(getLeftLabel());
+        root.setRight(getRightLabel());
+        root.setCenter(getCenterLabel());
+        Scene scene = new Scene(root, 300, 350);
 
+        stage.setTitle("Layout Study - Border Pane");
+        stage.setScene(scene);
+        stage.show();
     }
 
     private Label getTopLabel(){
@@ -54,6 +64,14 @@ public class BoderPaneEx extends Application {
     private Label getRightLabel(){
         Label lbl = new MyLabel("RIGHT");
         lbl.setPrefWidth(SIZE);
+        lbl.prefHeightProperty().bind(root.heightProperty().subtract(2*SIZE));
+        lbl.setStyle("-fx-border-style: dotted; -fx-border-width: 0 0 0 1; -fx-border-color: gray; -fx-font-weight: bold");
+        return lbl;
+    }
+
+    private Label getCenterLabel(){
+        Label lbl = new MyLabel("Center");
+        lbl.prefWidthProperty().bind(root.widthProperty().subtract(2*SIZE));
         lbl.prefHeightProperty().bind(root.heightProperty().subtract(2*SIZE));
         lbl.setStyle("-fx-border-style: dotted; -fx-border-width: 0 0 0 1; -fx-border-color: gray; -fx-font-weight: bold");
         return lbl;

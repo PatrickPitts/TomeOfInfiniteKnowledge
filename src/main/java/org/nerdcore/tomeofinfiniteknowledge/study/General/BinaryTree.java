@@ -1,5 +1,7 @@
 package org.nerdcore.tomeofinfiniteknowledge.study.General;
 
+import javafx.scene.Group;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -11,6 +13,25 @@ public class BinaryTree<T> implements Serializable {
     private BinaryTree<T> left;
     private BinaryTree<T> right;
 
+    public void setData(T data) {
+        this.data = data;
+    }
+
+    public BinaryTree<T> getLeft() {
+        return left;
+    }
+
+    public void setLeft(BinaryTree<T> left) {
+        this.left = left;
+    }
+
+    public BinaryTree<T> getRight() {
+        return right;
+    }
+
+    public void setRight(BinaryTree<T> right) {
+        this.right = right;
+    }
 
     /**
      * Constructor - creates a BinaryTree with a single leaf, no branches or child nodes
@@ -168,16 +189,17 @@ public class BinaryTree<T> implements Serializable {
         System.out.println();
     }
 
-    public List<T> inOrderArrayList(){
+    public List<BinaryTree<T>> inOrderArrayList(){
         System.out.println("Building In Order Traversal Array");
-        List<T> ret = new ArrayList<>();
+        //List<T> ret = new ArrayList<>();
+        List<BinaryTree<T>> ret = new ArrayList<>();
         inOrderArrayList(this, ret);
         return ret;
     }
-    private void inOrderArrayList(BinaryTree<T> root, List<T> arr){
+    private void inOrderArrayList(BinaryTree<T> root, List<BinaryTree<T>> arr){
         if(root == null)return;
         inOrderArrayList(root.left, arr);
-        arr.add(root.getData());
+        arr.add(root);
         inOrderArrayList(root.right, arr);
     }
 

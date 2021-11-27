@@ -8,7 +8,7 @@ public class Util {
 
     public static void main(String[] args) {
         BinaryTree<Integer> bt = new BinaryTree<>(new Integer[]{1, 2, 3, 4, 5, 6, 7});
-        List<Integer> arr = bt.inOrderArrayList();
+        List<BinaryTree<Integer>> arr = bt.inOrderArrayList();
         System.out.println(arr);
     }
 
