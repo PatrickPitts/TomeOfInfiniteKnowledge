@@ -33,6 +33,9 @@ public class VisualBinaryTree<T> extends BinaryTree<T>{
     public Group[] getVisualNodeArray(){
         List<Group> ret = new ArrayList<>();
         Queue<VisualBinaryTree<T>> Q = new LinkedList<>();
-        Q.add(this)
+        Q.add(this);
+
+
+        return ret.toArray(new Group[0]);
     }
 }

@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -32,7 +33,7 @@ public class TreeViewer extends Application {
     public void start(Stage stage) throws Exception {
         Integer[] tree = {1, 2, 3, 4, 5, 6, 7};
         stage.setTitle("Tree Viewer");
-        BinaryTree<Integer> bt = new VisualBinaryTree<>(tree);
+        VisualBinaryTree<Integer> bt = new VisualBinaryTree<>(tree);
         List<BinaryTree<Integer>> inOrderTraversal = bt.inOrderArrayList();
         BinaryTree<Integer>[] visTreeNodes = new BinaryTree[tree.length];
         for (int i = 0; i < inOrderTraversal.size(); i++) {
@@ -63,10 +64,13 @@ public class TreeViewer extends Application {
             }
             layer++;
         }
-//        for(int i = 0; i < visTreeNodes.length; i++){
-//            visTreeNodes[i].relocate(i*100, i*100);
-//        }
-        Pane root = new Pane(visTreeNodes);
+        Group[] visualTreeGroups = new Group[visTreeNodes.length];
+        Pane root = new Pane();
+//        Pane root = new Pane(visualTreeGroups);
+        for(int i = 0; i < visTreeNodes.length; i++){
+            root.getChildren().add(((VisualBinaryTree<Integer>)visTreeNodes[i]).getVisualNode());
+//            visualTreeGroups[i] = ((VisualBinaryTree<Integer>)visTreeNodes[i]).getVisualNode();
+        }
         Scene scene = new Scene(root, 450, 480);
         stage.setScene(scene);
 
