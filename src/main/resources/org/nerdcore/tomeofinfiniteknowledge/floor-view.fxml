@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.nerdcore.tomeofinfiniteknowledge.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <children>
+      <Pane prefHeight="200.0" prefWidth="400.0" style="-fx-border-color: black; -fx-border-width: 2px;" styleClass="floor-splashart" />
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <ScrollPane prefHeight="100.0" prefWidth="400.0" style="-fx-border-color: green; -fx-border-width: 2px;" styleClass="production-selection-scroll-pane">
+               <content>
+                  <ImageView fitHeight="96.0" fitWidth="527.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/production-selection-fullbar.png" />
+                     </image>
+                  </ImageView>
+               </content></ScrollPane>
+         </children>
+      </HBox>
+   </children>
+</VBox>
